@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <title>Home Page</title>
+  </head>
+
+
+  <body>
+
+      <div class="container my-3">
+        <h2>Result</h2>
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">SNo</th>
+              <th scope="col">ID</th>
+              <th scope="col">FirstName</th>
+              <th scope="col">LastName</th>
+              <th scope="col">DOB</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for todo in allTodo %}
+            <tr>
+              <th scope="row">{{loop.index}}</th>
+              <td>{{todo[0]}}</td> <!--employee id-->
+              <td>{{todo[1]}}</td> <!--first name-->
+              <td>{{todo[2]}}</td> <!--last name-->
+              <td>{{todo[3]}}</td> <!--date of birth-->
+              <td>
+                <a href="/update/{{todo[1]}}" type="button" class="btn btn-outline-dark btn-sm mx-1">Update</a>
+                <a href="/delete/{{todo[1]}}" type="button" class="btn btn-outline-dark btn-sm mx-1">Delete</a>
+              </td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+      
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+  </body>
+</html>
